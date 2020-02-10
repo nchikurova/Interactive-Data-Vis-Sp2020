@@ -1,0 +1,29 @@
+body{
+    background-color: rgb(243, 224, 208);
+
+}
+.expensive{
+    background-color:red;
+}
+.cheap{
+    background-color: salmon;
+}
+
+tr{
+    border: black 1px solid;
+}
+th,td{ /*horizontal line*/
+    font-weight: bold;
+    border-bottom: 1px solid#AD51BD;
+    
+}
+
+
+th:nth-child(n+1){
+    background:#AD51BD;
+    color:white;
+}
+
+tr:hover { /* hover - changing color when highlighting */
+    background-color: #99ddff;
+}

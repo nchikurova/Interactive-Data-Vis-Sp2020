@@ -1,0 +1,70 @@
+App name,City,Date,From,ID,Latitude,Longitude,Number of Records,Pick up location,Price,State,To,Zip
+Via,New York City,2/15/19 4:02,Work,1,40.7438,-73.98462,1,37 East 28th Street,19.97,NY,Home,10016
+Via,New York City,3/7/19 3:04,Work,2,40.743969,-73.983223,1,425 Park Ave S,24.47,NY,Home,10016
+Via,New York City,3/7/19 23:53,Work,3,40.743969,-73.983223,1,425 Park Ave S,10.7,NY,Home,10016
+Via,New York City,3/14/19 3:00,Work,4,40.7444,-73.98307,1,441 Park Ave S,10.28,NY,Home,10016
+Via,New York City,4/13/19 4:44,Work,5,40.7444,-73.98307,1,441 Park Ave S,9.49,NY,Home,10016
+Via,New York City,4/20/19 23:09,Work,6,40.73817,-73.984,1,280 Third Ave,12.65,NY,Home,10016
+Via,New York City,5/5/19 0:43,Work,7,40.74508,-73.98506,1,100 Madison Ave,10.76,NY,Home,10016
+Via,New York City,5/24/19 1:48,Work,8,40.74508,-73.98506,1,100 Madison Ave,9.04,NY,Home,10016
+Via,New York City,6/8/19 5:07,Work,9,40.7444,-73.98307,1,441 Park Ave S,16.24,NY,Home,10016
+Via,New York City,6/15/19 6:01,Work,10,40.743969,-73.983223,1,425 Park Ave S,12.98,NY,Home,10016
+Via,New York City,6/20/19 3:58,Work,11,40.7444,-73.98307,1,441 Park Ave S,10.49,NY,Home,10016
+Via,New York City,6/21/19 2:33,Work,12,40.743969,-73.983223,1,425 Park Ave S,10.49,NY,Home,10016
+Via,New York City,6/23/19 20:08,Work,13,40.745369,-73.984528,1,121 Madison Ave,12.39,NY,Home,10016
+Via,New York City,6/27/19 3:43,Work,14,40.7444,-73.98307,1,441 Park Ave S,11.22,NY,Home,10016
+Via,New York City,6/29/19 8:30,Work,15,40.74211,-73.97821,1,531 Second Ave,11.09,NY,Home,10016
+Via,New York City,7/11/19 3:26,Work,16,40.74508,-73.98506,1,100 Madison Ave,10.49,NY,Home,10016
+Via,New York City,7/13/19 0:52,Work,17,40.743969,-73.983223,1,425 Park Ave S,14.21,NY,Home,10016
+Via,New York City,7/14/19 20:16,Work,18,40.743969,-73.983223,1,425 Park Ave S,23.56,NY,Home,10016
+Via,New York City,7/18/19 4:26,Work,19,40.743969,-73.983223,1,425 Park Ave S,10.49,NY,Home,10016
+Via,New York City,7/20/19 4:33,Work,20,40.743969,-73.983223,1,425 Park Ave S,13.27,NY,Home,10016
+Via,New York City,7/25/19 3:41,Work,21,40.7444,-73.98307,1,441 Park Ave S,11.71,NY,Home,10016
+Via,New York City,8/17/19 4:51,Work,22,40.7444,-73.98307,1,441 Park Ave S,9.51,NY,Home,10016
+Via,New York City,8/22/19 2:56,Work,23,40.743969,-73.983223,1,425 Park Ave S,7.57,NY,Home,10016
+Via,New York City,9/5/19 2:46,Work,24,40.743969,-73.983223,1,425 Park Ave S,10.49,NY,Home,10016
+Via,New York City,9/12/19 3:54,Work,25,40.7444,-73.98307,1,441 Park Ave S,10.49,NY,Home,10016
+Via,New York City,9/19/19 2:51,Work,26,40.743969,-73.983223,1,425 Park Ave S,12.44,NY,Home,10016
+Via,New York City,9/21/19 4:46,Work,27,40.743969,-73.983223,1,425 Park Ave S,14.52,NY,Home,10016
+Via,New York City,9/28/19 4:39,Work,28,40.74289,-73.98196,1,129 Lexington Ave,13.27,NY,Home,10016
+Via,New York City,9/29/19 19:49,Work,29,40.74508,-73.98506,1,100 Madison Ave,11.09,NY,Home,10016
+Uber,New York City,3/15/19 1:18,Work,30,,,1,425 Park Ave S,6.72,NY,Home,10016
+Uber,New York City,3/21/19 23:12,Work,31,,,1,115 Madison Ave,10.2,NY,Home,10016
+Uber,New York City,3/28/19 3:20,Work,32,,,1,22 E 29th St,20.89,NY,Home,10016
+Uber,New York City,3/29/19 0:13,Work,33,,,1,99 Madison Ave,3.26,NY,Home,10016
+Uber,New York City,3/30/19 4:02,Work,34,,,1,100 Madison Ave,6.78,NY,Home,10016
+Uber,New York City,4/4/19 2:48,Work,35,,,1,51 E 29th St,4.77,NY,Home,10016
+Uber,New York City,4/4/19 23:11,Work,36,,,1,128 E 29th St,8.26,NY,Home,10016
+Uber,New York City,4/6/19 5:19,Work,37,,,1,38 E 29th St,18.94,NY,Home,10016
+Uber,New York City,4/11/19 23:09,Work,38,,,1,124 Lexington Ave,7.91,NY,Home,10016
+Uber,New York City,4/18/19 3:02,Work,39,,,1,443 Park Ave S,12.95,NY,Home,10016
+Uber,New York City,4/20/19 4:20,Work,40,,,1,443 Park Ave S,10.79,NY,Home,10016
+Uber,New York City,4/25/19 3:39,Work,41,,,1,96 Madison Ave,9.63,NY,Home,10016
+Uber,New York City,4/26/19 4:12,Work,42,,,1,472 Third Ave,7.13,NY,Home,10016
+Uber,New York City,4/29/19 4:19,Work,43,,,1,88 Madison Ave,10.07,NY,Home,10016
+Uber,New York City,5/2/19 2:28,Work,44,,,1,419 Park Ave,5.97,NY,Home,10016
+Uber,New York City,5/3/19 0:15,Work,45,,,1,31 E 31st St,5.73,NY,Home,10016
+Uber,New York City,5/9/19 3:14,Work,46,,,1,39 E 29th St,10.21,NY,Home,10016
+Uber,New York City,5/10/19 4:28,Work,47,,,1,419 Park Ave,11.55,NY,Home,10016
+Uber,New York City,5/11/19 4:36,Work,48,,,1,39 E 29th St,11.12,NY,Home,10016
+Uber,New York City,5/16/19 3:25,Work,49,,,1,38 E 29th St,11.61,NY,Home,10016
+Uber,New York City,5/17/19 0:17,Work,50,,,1,118 Madison Ave,8.21,NY,Home,10016
+Uber,New York City,5/23/19 2:38,Work,51,,,1,443 Park Ave S,8.78,NY,Home,10016
+Uber,New York City,5/30/19 2:54,Work,52,,,1,39 E 29th St,8.9,NY,Home,10016
+Uber,New York City,6/6/19 5:10,Work,53,,,1,132 E 30th St,14.42,NY,Home,10016
+Uber,New York City,6/7/19 1:13,Work,54,,,1,121 Madison Ave,10.49,NY,Home,10016
+Uber,New York City,6/13/19 4:27,Work,55,,,1,41 E 29th St,18.2,NY,Home,10016
+Uber,New York City,6/14/19 6:43,Work,56,,,1,162 Madison Ave,16.78,NY,Home,10016
+Uber,New York City,6/28/19 4:37,Work,57,,,1,440 Park Ave S,16.64,NY,Home,10016
+Uber,New York City,7/1/19 2:07,Work,58,,,1,129 Lexington Ave,12.16,NY,Home,10016
+Uber,New York City,7/4/19 2:24,Work,59,,,1,161 Lexington Ave,10.21,NY,Home,10016
+Uber,New York City,7/6/19 4:52,Work,60,,,1,33 E 29th St,13.46,NY,Home,10016
+Uber,New York City,7/8/19 2:54,Work,61,,,1,431 Third Ave,8.65,NY,Home,10016
+Uber,New York City,8/10/19 4:58,Work,62,,,1,39 E 29th St,18.62,NY,Home,10016
+Uber,New York City,8/15/19 2:36,Work,63,,,1,96 Madison Ave,6.63,NY,Home,10016
+Uber,New York City,8/24/19 4:22,Work,64,,,1,37 E 29th St,17.69,NY,Home,10016
+Uber,New York City,8/29/19 2:56,Work,65,,,1,159 Lexington Ave,6.7,NY,Home,10016
+Uber,New York City,8/31/19 2:16,Work,66,,,1,125 Madison Ave,11.69,NY,Home,10016
+Uber,New York City,9/7/19 4:08,Work,67,,,1,434 Park Ave S,17.26,NY,Home,10016
+Uber,New York City,9/14/19 1:14,Work,68,,,1,121 Madison Ave,13.17,NY,Home,10016
+Uber,New York City,9/26/19 3:11,Work,69,,,1,419 Park Ave,13.09,NY,Home,10022
