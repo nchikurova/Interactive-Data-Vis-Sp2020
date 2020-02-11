@@ -1,0 +1,14 @@
+body{
+    font-family: 'Source Sans Pro', sans-serif;
+    padding: 1em 3em;
+
+}
+
+.label{
+    fill: blueviolet;
+    text-anchor: middle;
+}
+
+.axis{
+    font-size: 16px;
+}
