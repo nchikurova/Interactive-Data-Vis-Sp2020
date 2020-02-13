@@ -8,29 +8,37 @@ d3.csv("../data/squirrelActivities.csv", d3.autoType).then(data => {
     const width = window.innerWidth * 0.9,
         height = window.innerHeight / 2,
         paddingInner = 0.2,
-        margin = { top: 20, bottom: 40, left: 50, right: 40 };
+        paddingOuter = 0.2,
+        margin = { top: 10, bottom: 10, left: 10, right: 40 };
 
     /** SCALES */
     // reference for d3.scales: https://github.com/d3/d3-scale
     const xScale = d3
         .scaleLinear()
-        .domain([0, d3.max(data, d => d.count)])
-        .range([margin.left, width - margin.right])
+        .domain([0, d3.max(data, d => d.count) + 30])
+        .range([100, width])
 
 
     const yScale = d3
         .scaleBand()
-        .domain([data, d => d.activity])
-        .range([0, height])
-        .paddingInner(paddingInner);
+        .domain(data.map(d => d.activity))
+        .range([10, height]) // range!!!! might be changed
+        .paddingInner(paddingInner)
+        .paddingOuter(paddingOuter);
 
 
     // reference for d3.axis: https://github.com/d3/d3-axis
-    const yAxis = d3.axisLeft(yScale);
-    const xAxis = d3.axisBottom(xScale)
+    const yAxis = d3
+        .axisLeft(yScale)
+        .ticks(data.length)
+        ;
+    const xAxis = d3
+        .axisBottom(xScale)
+    //.ticks(data.length);
 
     /** MAIN CODE */
     const svg = d3
+
         .select("#d3-container")
         .append("svg")
         .attr("width", width)
@@ -41,11 +49,12 @@ d3.csv("../data/squirrelActivities.csv", d3.autoType).then(data => {
         .selectAll("rect")
         .data(data)
         .join("rect")
-        .attr("y", d => yScale(d.activity))
-        .attr("x", d => xScale(d.count))
+        .attr("y", function (d) { return yScale(d.activity); })
+        .attr("x", 100)
         .attr("width", d => xScale(d.count))
         .attr("height", yScale.bandwidth())
-        .attr("fill", "steelblue")
+        .attr("fill", "teal")
+    //.attr(colors = ['#0000b4', '#0082ca', '#0094ff', '#0d4bcf', '#0066AE']);
 
     // append text
     const text = svg
@@ -54,19 +63,21 @@ d3.csv("../data/squirrelActivities.csv", d3.autoType).then(data => {
         .join("text")
         .attr("class", "label")
         // this allows us to position the text in the center of the bar
-        .attr("y", d => yScale(d.activity) + (yScale.bandwidth() / 2))
+        .attr("y", d => yScale(d.activity))
+        //.text(d => d.activity)
         .attr("x", d => xScale(d.count))
-        .text(d => d.activity)
-        .attr("dy", "1.25em");
+        .text(d => d.count)
+        .attr("dy", "1.8em")
+    //.attr("dx", "-.8");
 
     svg
         .append("g")
         .attr("class", "axis")
-        .attr("transform", `translate(${margin.left},${margin.top})`)
+        .attr("transform", `translate(80,10)`)
         .call(yAxis);
     svg
         .append("g")
-        .attr("class", "axis")
-        .attr("transform", 'translate(0, ${innerHeight})')
+        .attr("class", "class")
+        .attr("transform", 'translate(0,0)')
         .call(xAxis);
 });
