@@ -42,7 +42,9 @@ d3.csv("../data/squirrelActivities.csv", d3.autoType).then(data => {
         .select("#d3-container")
         .append("svg")
         .attr("width", width)
-        .attr("height", height);
+        .attr("height", height)
+
+    // .attr("color", color = ['#0000b4', 'black', '#0094ff', '#0d4bcf', '#0066AE']);
 
     // append rects
     const rect = svg
@@ -54,6 +56,8 @@ d3.csv("../data/squirrelActivities.csv", d3.autoType).then(data => {
         .attr("width", d => xScale(d.count))
         .attr("height", yScale.bandwidth())
         .attr("fill", "teal")
+    //const color = d3.scaleBand().range['#0000b4', 'black', '#0094ff', '#0d4bcf', '#0066AE']
+
     //.attr(colors = ['#0000b4', '#0082ca', '#0094ff', '#0d4bcf', '#0066AE']);
 
     // append text
@@ -77,7 +81,7 @@ d3.csv("../data/squirrelActivities.csv", d3.autoType).then(data => {
         .call(yAxis);
     svg
         .append("g")
-        .attr("class", "class")
+        .attr("class") // .attr("class, "axis") - x axis shows up on the top
         .attr("transform", 'translate(0,0)')
         .call(xAxis);
 });
