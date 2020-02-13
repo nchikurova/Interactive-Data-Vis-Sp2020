@@ -70,6 +70,8 @@ d3.csv("../data/squirrelActivities.csv", d3.autoType).then(data => {
         .attr("y", d => yScale(d.activity))
         //.text(d => d.activity)
         .attr("x", d => xScale(d.count))
+
+
         .text(d => d.count)
         .attr("dy", "1.8em")
     //.attr("dx", "-.8");
@@ -79,9 +81,9 @@ d3.csv("../data/squirrelActivities.csv", d3.autoType).then(data => {
         .attr("class", "axis")
         .attr("transform", `translate(80,10)`)
         .call(yAxis);
-    svg
-        .append("g")
-        .attr("class", "axis") // .attr("class, "axis") - x axis shows up on the top
-        .attr("transform", 'translate(0,0)')
-        .call(xAxis);
+    // svg
+    //     .append("g")
+    //     .attr("class", "axis") // .attr("class, "axis") - x axis shows up on the top
+    //     .attr("transform", 'translate(0,0)')
+    //     .call(xAxis);
 });
