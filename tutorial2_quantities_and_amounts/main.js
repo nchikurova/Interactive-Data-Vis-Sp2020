@@ -84,6 +84,6 @@ d3.csv("../data/squirrelActivities.csv", d3.autoType).then(data => {
     // svg
     //     .append("g")
     //     .attr("class", "axis") // .attr("class, "axis") - x axis shows up on the top
-    //     .attr("transform", 'translate(0,0)')
+    //     .attr("transform", 'translate(0,1500)')
     //     .call(xAxis);
 });
