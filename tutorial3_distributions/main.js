@@ -20,7 +20,7 @@ let state = {
 
 // Load data
 
-d3.json("../data/AirbnbD3.json", d3.autotype).then(raw_data => {
+d3.json("../data/AirbnbD3.json", d3.autoType).then(raw_data => {
   console.log("raw_data", raw_data)
   state.data = "raw_data";
   init();
