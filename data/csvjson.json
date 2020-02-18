@@ -1,0 +1,236 @@
+[
+  {
+    "restaurant": "Sandros",
+    "type": "Italian",
+    "rating": 4.7,
+    "number_of_reviews": 105
+  },
+  {
+    "restaurant": "Antonucci",
+    "type": "Italian",
+    "rating": 4.5,
+    "number_of_reviews": 158
+  },
+  {
+    "restaurant": "Marea",
+    "type": "Italian",
+    "rating": 4.5,
+    "number_of_reviews": 1693
+  },
+  {
+    "restaurant": "Carmine",
+    "type": "Italian",
+    "rating": 4.4,
+    "number_of_reviews": 3689
+  },
+  {
+    "restaurant": "Patsys",
+    "type": "Italian",
+    "rating": 4.3,
+    "number_of_reviews": 1321
+  },
+  {
+    "restaurant": "Chazz_Palminteri",
+    "type": "Italian",
+    "rating": 4.4,
+    "number_of_reviews": 472
+  },
+  {
+    "restaurant": "Ceci",
+    "type": "Italian",
+    "rating": 4.2,
+    "number_of_reviews": 537
+  },
+  {
+    "restaurant": "Tonys_Di_Napoli",
+    "type": "Italian",
+    "rating": 4.6,
+    "number_of_reviews": 3780
+  },
+  {
+    "restaurant": "Patzeria",
+    "type": "Italian",
+    "rating": 4.5,
+    "number_of_reviews": 1168
+  },
+  {
+    "restaurant": "Sushi_Of_Gari",
+    "type": "Japanese",
+    "rating": 4.2,
+    "number_of_reviews": 269
+  },
+  {
+    "restaurant": "Ishikawa",
+    "type": "Japanese",
+    "rating": 4.7,
+    "number_of_reviews": 200
+  },
+  {
+    "restaurant": "Naruto_Ramen",
+    "type": "Japanese",
+    "rating": 4.5,
+    "number_of_reviews": 1374
+  },
+  {
+    "restaurant": "Sushi_Seki",
+    "type": "Japanese",
+    "rating": 4.5,
+    "number_of_reviews": 240
+  },
+  {
+    "restaurant": "Nobu",
+    "type": "Japanese",
+    "rating": 4.4,
+    "number_of_reviews": 1280
+  },
+  {
+    "restaurant": "Amane",
+    "type": "Japanese",
+    "rating": 4.6,
+    "number_of_reviews": 78
+  },
+  {
+    "restaurant": "Aburiya_Kinnosuke",
+    "type": "Japanese",
+    "rating": 4.3,
+    "number_of_reviews": 387
+  },
+  {
+    "restaurant": "Yasuda",
+    "type": "Japanese",
+    "rating": 4.4,
+    "number_of_reviews": 1026
+  },
+  {
+    "restaurant": "Sakagura",
+    "type": "Japanese",
+    "rating": 4.5,
+    "number_of_reviews": 882
+  },
+  {
+    "restaurant": "Hatsuhana",
+    "type": "Japanese",
+    "rating": 4.5,
+    "number_of_reviews": 771
+  },
+  {
+    "restaurant": "Daniel",
+    "type": "French",
+    "rating": 4.6,
+    "number_of_reviews": 1515
+  },
+  {
+    "restaurant": "Vaucluse",
+    "type": "French",
+    "rating": 4.5,
+    "number_of_reviews": 360
+  },
+  {
+    "restaurant": "Match_65_Brasserie",
+    "type": "French",
+    "rating": 4.4,
+    "number_of_reviews": 404
+  },
+  {
+    "restaurant": "Brasserie",
+    "type": "French",
+    "rating": 4.4,
+    "number_of_reviews": 527
+  },
+  {
+    "restaurant": "La_Grenouille",
+    "type": "French",
+    "rating": 4.5,
+    "number_of_reviews": 408
+  },
+  {
+    "restaurant": "Benoit",
+    "type": "French",
+    "rating": 4.4,
+    "number_of_reviews": 552
+  },
+  {
+    "restaurant": "La_Mirabelle",
+    "type": "French",
+    "rating": 4.4,
+    "number_of_reviews": 136
+  },
+  {
+    "restaurant": "Jean_Georges",
+    "type": "French",
+    "rating": 4.5,
+    "number_of_reviews": 1300
+  },
+  {
+    "restaurant": "French_Roast",
+    "type": "French",
+    "rating": 4.1,
+    "number_of_reviews": 657
+  },
+  {
+    "restaurant": "Le_Bernardin",
+    "type": "French",
+    "rating": 4.7,
+    "number_of_reviews": 2281
+  },
+  {
+    "restaurant": "Dorrian_Red_Hand",
+    "type": "American",
+    "rating": 4,
+    "number_of_reviews": 270
+  },
+  {
+    "restaurant": "Pomona",
+    "type": "American",
+    "rating": 4.7,
+    "number_of_reviews": 43
+  },
+  {
+    "restaurant": "The_Grill",
+    "type": "American",
+    "rating": 4.6,
+    "number_of_reviews": 434
+  },
+  {
+    "restaurant": "The_Modern",
+    "type": "American",
+    "rating": 4.6,
+    "number_of_reviews": 1385
+  },
+  {
+    "restaurant": "Ocean_Prime",
+    "type": "American",
+    "rating": 4.6,
+    "number_of_reviews": 1062
+  },
+  {
+    "restaurant": "Public_House",
+    "type": "American",
+    "rating": 3.8,
+    "number_of_reviews": 763
+  },
+  {
+    "restaurant": "5_Napkin_Burger",
+    "type": "American",
+    "rating": 4.4,
+    "number_of_reviews": 3808
+  },
+  {
+    "restaurant": "Hillstone",
+    "type": "American",
+    "rating": 4.5,
+    "number_of_reviews": 1250
+  },
+  {
+    "restaurant": "Pennslylvania_6",
+    "type": "American",
+    "rating": 4.2,
+    "number_of_reviews": 615
+  },
+  {
+    "restaurant": "Americas_Cafe_Grill",
+    "type": "American",
+    "rating": 4.1,
+    "number_of_reviews": 197
+  }
+]

@@ -1,4 +1,4 @@
-host_name,borough,room_type
+name,borough,type
 John,Brooklyn,Private_room
 Laura,Manhattan,Entire_home
 Alina,Manhattan,Entire_home
@@ -185,7 +185,7 @@ Kalae,Manhattan,Shared_room
 Paul,Manhattan,Shared_room
 Mary,Brooklyn,Shared_room
 Eric,Brooklyn,Shared_room
-Aimí©e,Queens,Shared_room
+Aim’©e,Queens,Shared_room
 Debbie,Brooklyn,Shared_room
 Santiago,Brooklyn,Shared_room
 Charles,Manhattan,Shared_room

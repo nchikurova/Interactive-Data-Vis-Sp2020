@@ -2,7 +2,7 @@
 
 const width = window.innerWidth * 0.7,
   height = window.innerHeight * 0.7
-margin = { top: 20, bottom: 50, left: 60, right: 40 }
+margin = { top: 20, bottom: 50, left: 50, right: 40 }
 radius = 5;
 
 /** these variables allow us to access anything we manipulate in
@@ -20,7 +20,7 @@ let state = {
 
 // Load data
 
-d3.json("../data/AirbnbD3.csv", d3.autoType).then(raw_data => {
+d3.json("../data/csvjson.json", d3.autoType).then(raw_data => {
   console.log("raw_data", raw_data)
   state.data = "raw_data";
   init();
@@ -33,12 +33,12 @@ function init() {
   // SCALES
   xScale = d3
     .scaleLinear()
-    .domain(d3.extent(state.data, d => d.room_type))
+    .domain(d3.extent(state.data, d => d.number_of_reviews))
     .range([margin.left, width - margin.right]);
 
   yScale = d3
     .scaleLinear()
-    .domain(d3.extent(state.data, d => d.borough))
+    .domain(d3.extent(state.data, d => d.rating))
     .range([height - margin.bottom, margin.top]);
 
   // AXES
@@ -49,7 +49,7 @@ function init() {
   // add dropdown (HTML selection) for interaction
   // HTML select reference https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select
   const selectElement = d3.select("#dropdown").on("change", function () {
-    console.log("new selected room_type is", this.value);
+    console.log("new selected room type is", this.value);
     //'this' === the selectElement
     // this.value holds the dropdown value a user just selected
     state.selectedType = this.value;
@@ -58,7 +58,7 @@ function init() {
   // add in dropdown options from the unique values in the data
   selectElement
     .selectAll("option")
-    .data(["All", "Shared", "Private", "Entire"]) // unique data values-- (hint: to do this programmatically take a look `Sets`)
+    .data(["All", "Italian", "Japanese", "French", "American"]) // unique data values-- (hint: to do this programmatically take a look `Sets`)
     .join("option")
     .attr("value", d => d)
     .text(d => d);
@@ -80,7 +80,7 @@ function init() {
     .attr("class", "axis-label")
     .attr("x", "50%")
     .attr("dy", "3em")
-    .text("Room Type");
+    .text("Number of Reviews");
 
   // add the yAxis
   svg
@@ -93,7 +93,7 @@ function init() {
     .attr("y", "50%")
     .attr("dx", "-3em")
     .attr("writing-mode", "vertical-rl")
-    .text("Borough");
+    .text("Restaurant Google Rating");
 
   draw(); // calls the draw function
 }
@@ -107,7 +107,7 @@ function draw() {
   let filteredData = state.data;
   // if there is a selectedParty, filter the data before mapping it to our elements
   if (state.selectedType !== "All") {
-    filteredData = state.data.filter(d => d.party === state.selectedType);
+    filteredData = state.data.filter(d => d.type === state.selectedType);
   }
 
   const dot = svg
@@ -122,19 +122,20 @@ function draw() {
           .attr("stroke", "lightgrey")
           .attr("opacity", 0.5)
           .attr("fill", d => {
-            if (d.party === "Shared") return "blue";
-            else if (d.party === "Private") return "teal";
+            if (d.type === "Italian") return "blue";
+            else if (d.type === "Japanese") return "teal";
+            else if (d.type === "French") return "red";
             else return "purple";
           })
           .attr("r", radius)
-          .attr("cy", d => yScale(d.borough))
-          .attr("cx", d => margin.left) // initial value - to be transitioned
+          .attr("cy", d => yScale(d.rating))
+          .attr("cx", d => margin.left + 20) // initial value - to be transitioned
           .call(enter =>
             enter
               .transition() // initialize transition
-              .delay(d => 500 * d.room_type) // delay on each element
+              .delay(d => 500 * d.type) // delay on each element
               .duration(500) // duration 500ms
-              .attr("cx", d => xScale(d.room_type))
+              .attr("cx", d => xScale(d.type))
           ),
       update =>
         update.call(update =>
@@ -152,7 +153,7 @@ function draw() {
           // exit selections -- all the `.dot` element that no longer match to HTML elements
           exit
             .transition()
-            .delay(d => 50 * d.room_type)
+            .delay(d => 50 * d.type)
             .duration(500)
             .attr("cx", width)
             .remove()
