@@ -53,7 +53,7 @@ function init() {
   // UI ELEMENT SETUP
   // add dropdown (HTML selection) for interaction
   // HTML select reference: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select
-  const selectElement = d3.select("#dropdown").on("change", function() {
+  const selectElement = d3.select("#dropdown").on("change", function () {
     console.log("new selected party is", this.value);
     // `this` === the selectElement
     // this.value holds the dropdown value a user just selected

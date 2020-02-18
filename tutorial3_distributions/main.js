@@ -3,7 +3,7 @@
 const width = window.innerWidth * 0.7,
   height = window.innerHeight * 0.7
 margin = { top: 20, bottom: 50, left: 50, right: 40 }
-radius = 5;
+radius = 8;
 
 /** these variables allow us to access anything we manipulate in
 * init() but need access to in draw().
@@ -22,7 +22,7 @@ let state = {
 
 d3.json("../data/csvjson.json", d3.autoType).then(raw_data => {
   console.log("raw_data", raw_data)
-  state.data = "raw_data";
+  state.data = raw_data;
   init();
 });
 
@@ -42,14 +42,20 @@ function init() {
     .range([height - margin.bottom, margin.top]);
 
   // AXES
-  const xAxis = d3.axisBottom(xScale);
+  // const xAxisTickFormat = number =>
+  //   format('.3s')(number)
+  //     .replace('G', 'B');
+
+  const xAxis = d3.axisBottom(xScale)
+  //.tickFormat(xAxisTickFormat)
+  //.tickSize(-innerHeight);
   const yAxis = d3.axisLeft(yScale);
 
   // UI element set up
   // add dropdown (HTML selection) for interaction
   // HTML select reference https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select
   const selectElement = d3.select("#dropdown").on("change", function () {
-    console.log("new selected room type is", this.value);
+    console.log("new selected restaurant type is", this.value);
     //'this' === the selectElement
     // this.value holds the dropdown value a user just selected
     state.selectedType = this.value;
@@ -90,7 +96,7 @@ function init() {
     .call(yAxis)
     .append("text")
     .attr("class", "axis-label")
-    .attr("y", "50%")
+    .attr("y", "50%") //in the middle of line
     .attr("dx", "-3em")
     .attr("writing-mode", "vertical-rl")
     .text("Restaurant Google Rating");
@@ -105,7 +111,7 @@ function init() {
 function draw() {
   // filter the data for the selectedParty
   let filteredData = state.data;
-  // if there is a selectedParty, filter the data before mapping it to our elements
+  // if there is a selectedType, filter the data before mapping it to our elements
   if (state.selectedType !== "All") {
     filteredData = state.data.filter(d => d.type === state.selectedType);
   }
@@ -118,45 +124,49 @@ function draw() {
         // enter selections -- all data elements that don't have a `.dot` element attached to them yet
         enter
           .append("circle")
-          .attr("class", "dot") // Note: this is important so we can identify it in future updates
+          .attr("class", "dot")
+          // Note: this is important so we can identify it in future updates
           .attr("stroke", "lightgrey")
-          .attr("opacity", 0.5)
+          .attr("opacity", 0.6)
           .attr("fill", d => {
             if (d.type === "Italian") return "blue";
             else if (d.type === "Japanese") return "teal";
-            else if (d.type === "French") return "red";
+            else if (d.type === "French") return "darkblue";
             else return "purple";
           })
           .attr("r", radius)
-          .attr("cy", d => yScale(d.rating))
-          .attr("cx", d => margin.left + 20) // initial value - to be transitioned
-          .call(enter =>
-            enter
-              .transition() // initialize transition
-              .delay(d => 500 * d.type) // delay on each element
-              .duration(500) // duration 500ms
-              .attr("cx", d => xScale(d.type))
-          ),
-      update =>
-        update.call(update =>
-          // update selections -- all data elements that match with a `.dot` element
-          update
-            .transition()
-            .duration(250)
-            .attr("stroke", "black")
-            .transition()
-            .duration(250)
-            .attr("stroke", "lightgrey")
-        ),
-      exit =>
-        exit.call(exit =>
-          // exit selections -- all the `.dot` element that no longer match to HTML elements
-          exit
-            .transition()
-            .delay(d => 50 * d.type)
-            .duration(500)
-            .attr("cx", width)
-            .remove()
-        )
-    );
-}
+          .attr("cy", d => yScale(d.rating)))
+    //.attr("cy", d => margin.bottom))
+    .attr("cx", d => margin.left) // initial value - to be transitioned
+    .call(enter =>
+      enter
+        .transition() // initialize transition
+        // .delay(d => 500 * d.number_of_reviews) // delay on each element
+        // .duration(500) // duration 500ms
+        .attr("cx", d => xScale(d.number_of_reviews))
+    )
+};
+  // update =>
+  //   update.call(update =>
+  //     // update selections -- all data elements that match with a `.dot` element
+  //     update
+  //       .transition()
+  //       .duration(250)
+  //       .attr("stroke", "black")
+  //       .transition()
+  //       .duration(250)
+  //       .attr("stroke", "lightgrey")
+  //   ),
+  // exit =>
+  //   exit.call(exit =>
+  //     // exit selections -- all the `.dot` element that no longer match to HTML elements
+  //     exit
+  //       .transition()
+  //       .delay(d => 50 * d.type)
+  //       .duration(500)
+  //       .attr("cx", width)
+  //       .remove()
+  //   )
+  //);
+
+
