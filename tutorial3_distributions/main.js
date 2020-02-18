@@ -2,7 +2,7 @@
 
 const width = window.innerWidth * 0.7,
   height = window.innerHeight * 0.7
-margin = { top: 20, bottom: 50, left: 50, right: 40 }
+margin = { top: 20, bottom: 70, left: 70, right: 40 }
 radius = 8;
 
 /** these variables allow us to access anything we manipulate in
@@ -42,13 +42,8 @@ function init() {
     .range([height - margin.bottom, margin.top]);
 
   // AXES
-  // const xAxisTickFormat = number =>
-  //   format('.3s')(number)
-  //     .replace('G', 'B');
 
   const xAxis = d3.axisBottom(xScale)
-  //.tickFormat(xAxisTickFormat)
-  //.tickSize(-innerHeight);
   const yAxis = d3.axisLeft(yScale);
 
   // UI element set up
@@ -69,12 +64,13 @@ function init() {
     .attr("value", d => d)
     .text(d => d);
 
+
   // create an svg element in our main `d3-container` element
   svg = d3
     .select("#d3-container")
     .append("svg")
     .attr("width", width)
-    .attr("height", height);
+    .attr("height", height)
 
   // add the xAxis
   svg
@@ -101,7 +97,8 @@ function init() {
     .attr("writing-mode", "vertical-rl")
     .text("Restaurant Google Rating");
 
-  draw(); // calls the draw function
+  draw();
+  // calls the draw function
 }
 
 /**
@@ -126,47 +123,45 @@ function draw() {
           .append("circle")
           .attr("class", "dot")
           // Note: this is important so we can identify it in future updates
-          .attr("stroke", "lightgrey")
-          .attr("opacity", 0.6)
+          .attr("stroke", "grey")
+          .attr("opacity", 0.8)
           .attr("fill", d => {
-            if (d.type === "Italian") return "blue";
-            else if (d.type === "Japanese") return "teal";
-            else if (d.type === "French") return "darkblue";
+            if (d.type === "Italian") return "red";
+            else if (d.type === "Japanese") return "coral";
+            else if (d.type === "French") return "gold";
             else return "purple";
           })
           .attr("r", radius)
-          .attr("cy", d => yScale(d.rating)))
-    //.attr("cy", d => margin.bottom))
-    .attr("cx", d => margin.left) // initial value - to be transitioned
-    .call(enter =>
-      enter
-        .transition() // initialize transition
-        // .delay(d => 500 * d.number_of_reviews) // delay on each element
-        // .duration(500) // duration 500ms
-        .attr("cx", d => xScale(d.number_of_reviews))
-    )
-};
-  // update =>
-  //   update.call(update =>
-  //     // update selections -- all data elements that match with a `.dot` element
-  //     update
-  //       .transition()
-  //       .duration(250)
-  //       .attr("stroke", "black")
-  //       .transition()
-  //       .duration(250)
-  //       .attr("stroke", "lightgrey")
-  //   ),
-  // exit =>
-  //   exit.call(exit =>
-  //     // exit selections -- all the `.dot` element that no longer match to HTML elements
-  //     exit
-  //       .transition()
-  //       .delay(d => 50 * d.type)
-  //       .duration(500)
-  //       .attr("cx", width)
-  //       .remove()
-  //   )
-  //);
-
+          .attr("cx", d => xScale(d.number_of_reviews))
+          .attr("cy", d => margin.bottom + 150)// initial value - to be transitioned
+          .call(enter =>
+            enter
+              .transition() // initialize transition
+              //.delay(d => 50 * d.rating) // delay on each element
+              .duration(1200) // duration 500ms
+              .attr("cy", d => yScale(d.rating))
+          ),
+      update =>
+        update.call(update =>
+          //     // update selections -- all data elements that match with a `.dot` element
+          update
+            .transition()
+            .duration(500)
+            .attr("stroke", "black")
+            .transition()
+            .duration(500)
+            .attr("stroke", "darkblue")
+        ),
+      exit =>
+        exit.call(exit =>
+          //     // exit selections -- all the `.dot` element that no longer match to HTML elements
+          exit
+            .transition()
+            .delay(d => 10 * d.rating)
+            .duration(500)
+            .attr("cy", height)
+            .remove()
+        )
+    );
+}
 

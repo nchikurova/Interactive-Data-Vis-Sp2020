@@ -19,7 +19,7 @@ d3.csv("../data/squirrelActivities.csv", d3.autoType).then(data => {
     const xScale = d3
         .scaleLinear()
         .domain([0, d3.max(data, d => d.count)])
-        .range([margin.left, width - margin.right])
+        .range([0, width - margin.right])
 
     console.log(xScale)
 
@@ -95,6 +95,6 @@ d3.csv("../data/squirrelActivities.csv", d3.autoType).then(data => {
     svg
         .append("g")
         .attr("class", "axis") // .attr("class, "axis") - x axis shows up on the top
-    // .attr("transform", 'translate(0,0)')
-    //.call(xAxis);
+        .attr("transform", 'translate(${margin.left},0)')
+        .call(xAxis);
 });
