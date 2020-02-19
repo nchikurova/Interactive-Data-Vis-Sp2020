@@ -14,7 +14,7 @@ let yScale;
 
 // Aplication state
 let state = {
-  data: [],
+  data: [i],
   selectedType: "All",
 };
 
@@ -122,19 +122,21 @@ function draw() {
 
   const dot = svg
     .selectAll(".dot")
-    .on('mouseover', function (e) {
-      d3.select('#tooltip')
-        .transition()
-        .duration(200)
-        .style('opacity', 1)
-        .text(state.data)
-    })
-    .on('mouseout', function (e) {
-      d3.select('#tooltip')
-        .style('opacity', 0)
-    })
+    // .on('mouseover', function (e) {
+    //   d3.select('#tooltip')
+    //     .transition()
+    //     .duration(200)
+    //     .style('opacity', 1)
+    //     .text(state.data)
+
+    // })
+    // .on('mouseout', function (e) {
+    //   d3.select('#tooltip')
+    //     .style('opacity', 0)
+    // })
 
     .data(filteredData, d => d.name) // use `d.name` as the `key` to match between HTML and data elements
+
     .join(
       enter =>
         // enter selections -- all data elements that don't have a `.dot` element attached to them yet
@@ -145,8 +147,10 @@ function draw() {
           .attr("stroke", "grey")
           .attr("opacity", 0.8)
           .attr("fill", d => {
-            if (d.type === "Italian") return "red";
-            else if (d.type === "Japanese") return "coral";
+            // if (d.type === "Italian") return "red";
+            // else if (d.type === "Japanese") return "coral";
+            if (d.type === "Japanese") return "red";
+            else if (d.type === "Italian") return "coral";
             else if (d.type === "French") return "gold";
             else return "purple";
           })
@@ -159,17 +163,15 @@ function draw() {
               //.delay(d => 50 * d.rating) // delay on each element
               .duration(1200) // duration 500ms
               .attr("cy", d => yScale(d.rating))
+
           ),
       update =>
         update.call(update =>
           //     // update selections -- all data elements that match with a `.dot` element
           update
+            .append("circle")
             .transition()
             .duration(500)
-            .attr("stroke", "black")
-            .transition()
-            .duration(500)
-            .attr("stroke", "darkblue")
         ),
       exit =>
         exit.call(exit =>

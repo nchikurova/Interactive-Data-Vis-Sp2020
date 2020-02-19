@@ -18,16 +18,16 @@ body {
     fill: black;
     text-anchor: middle;
   }
- /* .tooltip {
+  .tooltip {
      font-size: 10px;
      fill: lightgray;
      text-anchor: middle;
  }
 
- .tooltip {
+ /* .tooltip {
     position: absolute;
     font-size: 12px;
     width:  auto;
     height: auto;
     pointer-events: none;
-    background-color: white; */
+    background-color: white;  */
