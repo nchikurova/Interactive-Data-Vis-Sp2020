@@ -14,7 +14,7 @@ let yScale;
 
 // Aplication state
 let state = {
-  data: [i],
+  data: [],
   selectedType: "All",
 };
 
@@ -68,8 +68,15 @@ function init() {
     .append('div')
     .attr('id', 'tooltip')
     .attr('style', 'position: absolute, opacity: 0.5;');
-
-
+  d3.select('svg')
+    .selectAll('circle')
+    .join('circle')
+    .on('mouseover', function () {
+      d3.select('#tooltip').style('opacity', 1).text(d)
+    })
+    .on('mouseout', function () {
+      d3.select('#tooltip').style('opacity', 0)
+    })
   // create an svg element in our main `d3-container` element
   svg = d3
     .select("#d3-container")
