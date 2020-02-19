@@ -64,6 +64,11 @@ function init() {
     .attr("value", d => d)
     .text(d => d);
 
+  d3.select('body')
+    .append('div')
+    .attr('id', 'tooltip')
+    .attr('style', 'position: absolute, opacity: 0.5;');
+
 
   // create an svg element in our main `d3-container` element
   svg = d3
@@ -71,6 +76,8 @@ function init() {
     .append("svg")
     .attr("width", width)
     .attr("height", height)
+
+
 
   // add the xAxis
   svg
@@ -115,6 +122,18 @@ function draw() {
 
   const dot = svg
     .selectAll(".dot")
+    .on('mouseover', function (e) {
+      d3.select('#tooltip')
+        .transition()
+        .duration(200)
+        .style('opacity', 1)
+        .text(state.data)
+    })
+    .on('mouseout', function (e) {
+      d3.select('#tooltip')
+        .style('opacity', 0)
+    })
+
     .data(filteredData, d => d.name) // use `d.name` as the `key` to match between HTML and data elements
     .join(
       enter =>
