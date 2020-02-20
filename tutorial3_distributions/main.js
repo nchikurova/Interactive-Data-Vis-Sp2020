@@ -1,9 +1,9 @@
 // CONST and GLOBALS
 
 const width = window.innerWidth * 0.7,
-  height = window.innerHeight * 0.7
-margin = { top: 20, bottom: 70, left: 70, right: 40 }
-radius = 8;
+  height = window.innerHeight * 0.7,
+  margin = { top: 20, bottom: 70, left: 70, right: 40 },
+  radius = 8;
 
 /** these variables allow us to access anything we manipulate in
 * init() but need access to in draw().
@@ -144,20 +144,17 @@ function draw() {
     //     .style('opacity', 0)
     // })
 
-    .data(filteredData, d => d.name) // use `d.name` as the `key` to match between HTML and data elements
+    .data(filteredData, d => d.type === state.selectedType) // use `d.name` as the `key` to match between HTML and data elements
 
     .join(
       enter =>
         // enter selections -- all data elements that don't have a `.dot` element attached to them yet
         enter
           .append("circle")
-          .attr("class", "dot")
-          // Note: this is important so we can identify it in future updates
+          .attr("class", "dot") // Note: this is important so we can identify it in future updates
           .attr("stroke", "grey")
           .attr("opacity", 0.8)
           .attr("fill", d => {
-            // if (d.type === "Italian") return "red";
-            // else if (d.type === "Japanese") return "coral";
             if (d.type === "Japanese") return "red";
             else if (d.type === "Italian") return "coral";
             else if (d.type === "French") return "gold";
@@ -176,10 +173,14 @@ function draw() {
           ),
       update =>
         update.call(update =>
-          //     // update selections -- all data elements that match with a `.dot` element
+          // update selections -- all data elements that match with a `.dot` element
           update
             .transition()
-            .duration(500)
+            .duration(250)
+          //.attr("stroke", "black")
+          // .transition()
+          // .duration(250)
+          //.attr("stroke", "lightgrey")
         ),
       exit =>
         exit.call(exit =>
