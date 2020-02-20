@@ -177,10 +177,6 @@ function draw() {
           update
             .transition()
             .duration(250)
-          //.attr("stroke", "black")
-          // .transition()
-          // .duration(250)
-          //.attr("stroke", "lightgrey")
         ),
       exit =>
         exit.call(exit =>
