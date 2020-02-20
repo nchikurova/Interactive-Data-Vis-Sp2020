@@ -64,19 +64,21 @@ function init() {
     .attr("value", d => d)
     .text(d => d);
 
-  d3.select('body')
-    .append('div')
-    .attr('id', 'tooltip')
-    .attr('style', 'position: absolute, opacity: 0.5;');
-  d3.select('svg')
-    .selectAll('circle')
-    .join('circle')
-    .on('mouseover', function () {
-      d3.select('#tooltip').style('opacity', 1).text(d)
-    })
-    .on('mouseout', function () {
-      d3.select('#tooltip').style('opacity', 0)
-    })
+  // d3.select('body')
+  //   .append('div')
+  //   .attr('id', 'tooltip')
+  //   .attr('style', 'position: absolute, opacity: 0.5;')
+  //   .attr('position: top: 100%, left:50%');
+
+  // d3.select('svg')
+  //   .selectAll('circle')
+  //   .join('circle')
+  //   .on('mouseover', function () {
+  //     d3.select('#tooltip').style('opacity', 1).text(d)
+  //   })
+  //   .on('mouseout', function () {
+  //     d3.select('#tooltip').style('opacity', 0)
+  //   })
   // create an svg element in our main `d3-container` element
   svg = d3
     .select("#d3-container")
@@ -176,7 +178,6 @@ function draw() {
         update.call(update =>
           //     // update selections -- all data elements that match with a `.dot` element
           update
-            .append("circle")
             .transition()
             .duration(500)
         ),
