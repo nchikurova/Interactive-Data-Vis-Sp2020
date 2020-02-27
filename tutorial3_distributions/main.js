@@ -59,6 +59,7 @@ function init() {
   // add in dropdown options from the unique values in the data
   selectElement
     .selectAll("option")
+
     .data(["All", "Italian", "Japanese", "French", "American"]) // unique data values-- (hint: to do this programmatically take a look `Sets`)
     .join("option")
     .attr("value", d => d)
@@ -128,6 +129,9 @@ function draw() {
   if (state.selectedType !== "All") {
     filteredData = state.data.filter(d => d.type === state.selectedType);
   }
+  const div = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
 
   const dot = svg
     .selectAll(".dot")
@@ -144,7 +148,7 @@ function draw() {
     //     .style('opacity', 0)
     // })
 
-    .data(filteredData, d => d.type === state.selectedType) // use `d.name` as the `key` to match between HTML and data elements
+    .data(filteredData, d => d.restaurant) // use `d.name` as the `key` to match between HTML and data elements
 
     .join(
       enter =>
@@ -169,6 +173,20 @@ function draw() {
               //.delay(d => 50 * d.rating) // delay on each element
               .duration(1200) // duration 500ms
               .attr("cy", d => yScale(d.rating))
+
+              .on("mouseover", function (d) {
+                div.transition()
+                  .duration(200)
+                  .style("opacity", 0.5);
+                div.html(d.restaurant)
+                  .style("left", (d3.event.pageX) + "px")
+                  .style("top", (d3.event.pageY - 28) + "px");
+              })
+              .on("mouseout", function (d) {
+                div.transition()
+                  .duration(500)
+                  .style("opacity", 0);
+              })
 
           ),
       update =>

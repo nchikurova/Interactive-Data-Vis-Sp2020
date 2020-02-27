@@ -18,10 +18,13 @@ body {
     fill: black;
     text-anchor: middle;
   }
-  .tooltip {
+  div.tooltip {
+     position: absolute;
      font-size: 10px;
      fill: lightgray;
      text-anchor: middle;
+     width: 70px;
+     height: 18;
  }
 
  /* .tooltip {

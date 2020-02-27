@@ -1,0 +1,45 @@
+body {
+    /* ref: https://fonts.google.com/specimen/Source+Sans+Pro?selection.family=Source+Sans+Pro */
+    font-family: "Source Sans Pro", 'Arial Narrow Bold';
+    fill: black;
+    padding: 1em 3em;
+  }
+  h1 {
+    font-family: Bold;
+    color: #170240;
+  }
+
+  .dot {
+    cursor: pointer;
+    color: steelblue;
+    opacity: 0.5;
+  }
+  
+  .dot:hover {
+    fill: orange;
+  }
+  
+  .axis-label {
+    font-size: 14px;
+    fill: black;
+    text-anchor: middle;
+  }
+  
+  .trend {
+    fill: thistle;
+    stroke: rgb(44, 29, 97);
+    stroke-width: 2;
+    stroke-linejoin: round;
+  }
+  .tooltip{
+    position: absolute;			
+    text-align: center;			
+    width: 75px;					
+    height: 25px;					
+    padding: 2px;				
+    font: 12px sans-serif;		
+    background: #F4F0FC;	
+    color: black;
+    border: 0px;				
+    pointer-events: none;
+}
