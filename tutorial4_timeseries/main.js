@@ -4,7 +4,7 @@
 const width = window.innerWidth * 0.7,
     height = window.innerHeight * 0.7,
     margin = { top: 20, bottom: 50, left: 60, right: 40 },
-    radius = 0.01,
+    radius = 3,
     default_selection = "Select";
 
 /** these variables allow us to access anything we manipulate in
@@ -156,7 +156,7 @@ function draw() {
 
     const dot = svg
         .selectAll(".dot")
-        .data(filteredData, d => d.year) // use `d.year` as the `key` to match between HTML and data elements
+        .data(filteredData, d => d.price) // use `d.year` as the `key` to match between HTML and data elements
         // I guess that's not the case with Unique Value as in previous tutorial. I tried to make key value "price" since its unique< but it didnt help. The dots from previous selection still stays on a screen. So I just made a radius very small :)
         .join(
             enter =>
@@ -170,10 +170,10 @@ function draw() {
                     .on("mouseover", function (d) {
                         div.transition()
                             .duration(200)
-                            .style("opacity", .5)
-                        div.html(d.price)
+                            .style("opacity", 1)
+                        div.html("Average price of Condo " + "was $" + d.price)
                             .style("left", (d3.event.pageX) + "px")
-                            .stype("top", (d3.event.pageY - 28) + "px")
+                            .style("top", (d3.event.pageY - 28) + "px")
                     })
                     .on("mouseout", function (d) {
                         div.transition()
