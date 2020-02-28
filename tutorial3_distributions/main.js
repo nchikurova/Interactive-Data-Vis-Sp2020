@@ -112,7 +112,11 @@ function init() {
     .attr("y", "50%") //in the middle of line
     .attr("dx", "-3em")
     .attr("writing-mode", "vertical-rl")
-    .text("Restaurant Google Rating");
+    .text("Restaurant Google Rating")
+
+  div = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
 
   draw();
   // calls the draw function
@@ -129,24 +133,10 @@ function draw() {
   if (state.selectedType !== "All") {
     filteredData = state.data.filter(d => d.type === state.selectedType);
   }
-  const div = d3.select("body").append("div")
-    .attr("class", "tooltip")
-    .style("opacity", 0);
+
 
   const dot = svg
     .selectAll(".dot")
-    // .on('mouseover', function (e) {
-    //   d3.select('#tooltip')
-    //     .transition()
-    //     .duration(200)
-    //     .style('opacity', 1)
-    //     .text(state.data)
-
-    // })
-    // .on('mouseout', function (e) {
-    //   d3.select('#tooltip')
-    //     .style('opacity', 0)
-    // })
 
     .data(filteredData, d => d.restaurant) // use `d.name` as the `key` to match between HTML and data elements
 
@@ -166,28 +156,27 @@ function draw() {
           })
           .attr("r", radius)
           .attr("cx", d => xScale(d.number_of_reviews))
-          .attr("cy", d => margin.bottom + 150)// initial value - to be transitioned
+          .attr("cy", d => margin.bottom + 150)
+          .on("mouseover", function (d) {
+            div.transition()
+              .duration(200)
+              .style("opacity", 0.5);
+            div.html(d.restaurant)
+              .style("left", (d3.event.pageX) + "px")
+              .style("top", (d3.event.pageY - 28) + "px");
+          })
+          .on("mouseout", function (d) {
+            div.transition()
+              .duration(500)
+              .style("opacity", 0);
+          })
+          // initial value - to be transitioned
           .call(enter =>
             enter
               .transition() // initialize transition
               //.delay(d => 50 * d.rating) // delay on each element
               .duration(1200) // duration 500ms
               .attr("cy", d => yScale(d.rating))
-
-              .on("mouseover", function (d) {
-                div.transition()
-                  .duration(200)
-                  .style("opacity", 0.5);
-                div.html(d.restaurant)
-                  .style("left", (d3.event.pageX) + "px")
-                  .style("top", (d3.event.pageY - 28) + "px");
-              })
-              .on("mouseout", function (d) {
-                div.transition()
-                  .duration(500)
-                  .style("opacity", 0);
-              })
-
           ),
       update =>
         update.call(update =>

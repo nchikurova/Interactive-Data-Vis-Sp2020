@@ -18,19 +18,17 @@ body {
     fill: black;
     text-anchor: middle;
   }
-  div.tooltip {
-     position: absolute;
-     font-size: 10px;
-     fill: lightgray;
-     text-anchor: middle;
-     width: 70px;
-     height: 18;
+  .tooltip {
+    position: absolute;			
+    text-align: center;			
+    width: 100px;					
+    height: 20px;					
+    padding: 2px;				
+    font: 12px sans-serif;		
+    background: white;	
+    color: black;
+    border: 0px;				
+    pointer-events: none;
  }
 
- /* .tooltip {
-    position: absolute;
-    font-size: 12px;
-    width:  auto;
-    height: auto;
-    pointer-events: none;
-    background-color: white;  */
+ 

@@ -4,7 +4,7 @@
 const width = window.innerWidth * 0.7,
     height = window.innerHeight * 0.7,
     margin = { top: 20, bottom: 50, left: 60, right: 40 },
-    radius = 3,
+    radius = 4,
     default_selection = "Select";
 
 /** these variables allow us to access anything we manipulate in
@@ -156,14 +156,14 @@ function draw() {
 
     const dot = svg
         .selectAll(".dot")
-        .data(filteredData, d => d.price) // use `d.year` as the `key` to match between HTML and data elements
-        // I guess that's not the case with Unique Value as in previous tutorial. I tried to make key value "price" since its unique< but it didnt help. The dots from previous selection still stays on a screen. So I just made a radius very small :)
+        .data(filteredData, d => d.price) // use `d.year` as the `key` to match between HTML and data element
         .join(
             enter =>
                 // enter selections -- all data elements that don't have a `.dot` element attached to them yet
                 enter
                     .append("circle")
-                    .attr("class", "dot") // Note: this is important so we can identify it in future updates
+                    .attr("class", "dot")
+                    .attr("fill", "#170240") // Note: this is important so we can identify it in future updates
                     .attr("r", radius)
                     .attr("cy", d => yScale(d.price)) // initial value - to be transitioned
                     .attr("cx", d => xScale(d.year))
@@ -179,14 +179,15 @@ function draw() {
                         div.transition()
                             .duration(200)
                             .style("opacity", 0)
-                    }),
+                    })
+            ,
             update => update,
             exit =>
                 exit.call(exit =>
                     // exit selections -- all the `.dot` element that no longer match to HTML elements
                     exit
                         .transition()
-                        .delay(d => d.price)
+                        .delay(1000)
                         .duration(500)
                         .attr("cy", height - margin.bottom)
                         .remove()
@@ -217,7 +218,7 @@ function draw() {
         .call(selection =>
             selection
                 .transition() // sets the transition on the 'Enter' + 'Update' selections together.
-                .duration(1000)
+                .duration(800)
                 .attr("opacity", 0.8)
                 .attr("d", d => areaFunc(d))
         );
