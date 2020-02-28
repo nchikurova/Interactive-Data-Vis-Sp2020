@@ -29,6 +29,7 @@ body {
     color: black;
     border: 0px;				
     pointer-events: none;
+    stroke: black;
  }
 
  
