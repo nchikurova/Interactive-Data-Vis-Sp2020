@@ -2,8 +2,13 @@
  * CONSTANTS AND GLOBALS
  * */
 const width = window.innerWidth * 0.9,
+<<<<<<< HEAD
     height = window.innerHeight * 0.7,
     margin = { top: 20, bottom: 50, left: 60, right: 40 };
+=======
+  height = window.innerHeight * 0.7,
+  margin = { top: 20, bottom: 50, left: 60, right: 40 };
+>>>>>>> upstream/master
 
 /** these variables allow us to access anything we manipulate in
  * init() but need access to in draw().
@@ -14,6 +19,7 @@ let svg;
  * APPLICATION STATE
  * */
 let state = {
+<<<<<<< HEAD
     geojson: null,
     extremes: null,
     hover: {
@@ -21,6 +27,9 @@ let state = {
         longitude: null,
         state: null,
     },
+=======
+  // + SET UP STATE
+>>>>>>> upstream/master
 };
 
 /**
@@ -28,6 +37,7 @@ let state = {
  * Using a Promise.all([]), we can load more than one dataset at a time
  * */
 Promise.all([
+<<<<<<< HEAD
     d3.json("../../data/us-state.json"),
     d3.csv("../../data/usHeatExtremes.csv", d3.autoType),
 ]).then(([geojson, extremes]) => {
@@ -35,6 +45,14 @@ Promise.all([
     state.extremes = extremes;
     console.log("state: ", state);
     init();
+=======
+  d3.json("PATH_TO_YOUR_GEOJSON"),
+  d3.csv("PATH_TO_ANOTHER_DATASET", d3.autoType),
+]).then(([geojson, otherData]) => {
+  // + SET STATE WITH DATA
+  console.log("state: ", state);
+  init();
+>>>>>>> upstream/master
 });
 
 /**
@@ -42,6 +60,7 @@ Promise.all([
  * this will be run *one time* when the data finishes loading in
  * */
 function init() {
+<<<<<<< HEAD
     // our projection and path are only defined once, and we don't need to access them in the draw function,
     // so they can be locally scoped to init()
     const projection = d3.geoAlbersUsa().fitSize([width, height], state.geojson);
@@ -95,12 +114,29 @@ function init() {
     });
 
     draw(); // calls the draw function
+=======
+  // create an svg element in our main `d3-container` element
+  svg = d3
+    .select("#d3-container")
+    .append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+  // + SET UP PROJECTION
+  // + SET UP GEOPATH
+
+  // + DRAW BASE MAP PATH
+  // + ADD EVENT LISTENERS (if you want)
+
+  draw(); // calls the draw function
+>>>>>>> upstream/master
 }
 
 /**
  * DRAW FUNCTION
  * we call this everytime there is an update to the data/state
  * */
+<<<<<<< HEAD
 function draw() {
     // return an array of [key, value] pairs
     hoverData = Object.entries(state.hover);
@@ -118,3 +154,6 @@ function draw() {
                     : null // otherwise, show nothing
         );
 }
+=======
+function draw() {}
+>>>>>>> upstream/master
