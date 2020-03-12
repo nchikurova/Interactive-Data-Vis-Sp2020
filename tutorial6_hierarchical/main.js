@@ -40,7 +40,8 @@ function init() {
     .attr("class", "tooltip")
     .attr("width", 100)
     .attr("height", 100)
-    .style("position", "absolute");
+    .style("position", "absolute")
+    .style("opacity", 1);
 
   svg = container
     .append("svg")
@@ -79,7 +80,9 @@ function init() {
     .attr("transform", d => `translate(${d.x},${d.y})`);
 
   console.log(leaf)
-
+  // const sqrtScale = d3.scaleSqrt()
+  //   .domain([0, 100])
+  //   .range([0, 100])
   leaf
     .append("circle")
     .attr("fill", d => {
@@ -89,14 +92,15 @@ function init() {
     // .attr("width", d => d.x1 - d.x0)
     // .attr("height", d => d.y1 - d.y0)
     .attr("r", d => d.r)
+
     .on("mouseover", d => {
       state.hover = {
         translate: [
           // center top left of the tooltip in center of tile
           // d.x0 + (d.x1 - d.x0) / 2,
           // d.y0 + (d.y1 - d.y0) / 2,
-          d3.mouse(svg.node())[0],
-          d3.mouse(svg.node())[1],
+          d.x,
+          d.y,
         ],
         name: d.data.name,
         value: d.data.value,
@@ -109,6 +113,7 @@ function init() {
       };
       draw();
     });
+
   draw(); // calls the draw function
 }
 
