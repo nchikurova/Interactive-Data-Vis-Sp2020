@@ -89,8 +89,7 @@ function init() {
       const level1Ancestor = d.ancestors().find(d => d.depth === 1);
       return colorScale(level1Ancestor.data.name);
     })
-    // .attr("width", d => d.x1 - d.x0)
-    // .attr("height", d => d.y1 - d.y0)
+    // 3 properties assigned : d.r - radius, d.x and d.y - coordinates of the center of each circle
     .attr("r", d => d.r)
 
     .on("mouseover", d => {
